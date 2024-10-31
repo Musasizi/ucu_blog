@@ -1,11 +1,26 @@
+import Title from "../components/Title";
+import Content from "../components/Content";
 
 function Home() {
+
+function goToNextPage(){}
+
   return (
     <div>
-      <h1>This is a very big heading</h1>
-      <p>This is a paragraph</p>
-      <h2>This is another heading!</h2>
-      <h3> This is from a sample branch that has been created</h3>
+      <Title heading="MAKERERE BLOG" onClick = {goToNextPage} />
+      <Content details="This is a very nice blog from MAK" />
+
+      <br />
+
+      <Title heading="UGANDA MARTYRS BLOG" />
+      <Content details="This is a very nice blog from UMU" />
+      <br />
+
+      <Title heading="NDEJJE BLOG" />
+      <Content details="This is a very nice blog from NDEJJE" />
+
+
+
     </div>
   );
 }
