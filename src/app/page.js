@@ -3,11 +3,10 @@ import Content from "../components/Content";
 
 function Home() {
 
-function goToNextPage(){}
 
   return (
     <div>
-      <Title heading="MAKERERE BLOG" onClick = {goToNextPage} />
+      <Title heading="MAKERERE BLOG"  />
       <Content details="This is a very nice blog from MAK" />
 
       <br />
