@@ -1,4 +1,5 @@
 import Title from "../components/Title";
+
 import Content from "../components/Content";
 
 function Home() {
