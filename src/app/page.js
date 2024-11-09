@@ -7,7 +7,8 @@ function Home() {
 
   return (
     <div>
-
+      <p>These are children</p>
+      
       <Title heading="MAKERERE BLOG" />
       <Content details="This is a very nice blog from MAK" />
 
@@ -22,7 +23,12 @@ function Home() {
 
       <Button variant="contained" disabled>Contained</Button>
       <Button variant="text">Submit</Button>
-      <Button variant="outlined">Remove</Button>
+
+
+
+      <Button variant="outlined">
+        Remove
+      </Button>
 
 
     </div>
