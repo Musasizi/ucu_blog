@@ -1,12 +1,13 @@
 import Title from "../components/Title";
-
 import Content from "../components/Content";
+import Button from '@mui/material/Button';
 
 function Home() {
 
 
   return (
     <div>
+
       <Title heading="MAKERERE BLOG" />
       <Content details="This is a very nice blog from MAK" />
 
@@ -19,6 +20,9 @@ function Home() {
       <Title heading="NDEJJE BLOG" />
       <Content details="This is a very nice blog from NDEJJE" />
 
+      <Button variant="contained" disabled>Contained</Button>
+      <Button variant="text">Submit</Button>
+      <Button variant="outlined">Remove</Button>
 
 
     </div>
