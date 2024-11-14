@@ -2,8 +2,13 @@
 
 import Title from "../components/Title";
 import Content from "../components/Content";
+import MovieCard from "@/components/MovieCard";
 import Button from '@mui/material/Button';
 import { useState, useEffect } from "react";
+import Grid from '@mui/material/Grid2';
+import Typography from '@mui/material/Typography';
+import { Divider } from "@mui/material";
+
 
 function Home() {
 
@@ -36,7 +41,9 @@ function Home() {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
+
       setMoviesData(result);
+
       console.log(response);
       console.log(result);
     } catch (error) {
@@ -51,26 +58,27 @@ function Home() {
   }, [])
 
   return (
-    <div>
+    <div style={{ marginTop: "100px", marginLeft: "100px", marginRight: "100px" }}>
+      <Typography variant="h3" gutterBottom>
+        TOP 100 MOVIES IN THE WORLD
+      </Typography>
+      <Grid container spacing={4}>
+        <Grid size={{ md: 12, }}>
+          <Divider />
+        </Grid>
+      </Grid>
+      <Grid container spacing={4} sx={{ marginTop: "10px" }}>
+        {
+          moviesData.map((movie) => {
+            return (
+              <Grid size={{ xs: 12, sm: 6, md: 4, xl: 2 }}>
+                <MovieCard movie={movie} key={movie.imdbid} />
+              </Grid>
+            )
+          })
+        }
+      </Grid>
 
-      {moviesData.map((movie) => {
-        return <div>
-          <p>{movie.rank}. {movie.title}</p>
-          <img src={movie.thumbnail} />
-          <small>{movie.description}</small>
-        </div>
-      })}
-      {showBlog ? <div>
-        <Title heading="MAKERERE BLOG" />
-        <Content details="This is a very nice blog from MAK" />
-      </div>
-        : <div>
-          <Title heading="UGANDA MARTYRS BLOG" />
-          <Content details="This is a very nice blog from UMU" />
-        </div>
-      }
-      <br />
-      <p> {randomText}</p>
 
 
 
