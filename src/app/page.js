@@ -8,14 +8,27 @@ import { useState, useEffect } from "react";
 import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import { Divider } from "@mui/material";
+import MoviesPopUp from "@/components/MoviesPopUp";
 
 
 function Home() {
 
   const [showBlog, setShowBlog] = useState(false);
+  const [openMoviesPopUp, setOpenMoviesPopUp] = useState(false);
+  const [currentMovie, setCurrentMovie] = useState(null);
+
   const [randomText, setRandomText] = useState("No button has been clicked!");
   const [moviesData, setMoviesData] = useState([]);
 
+  const handleOpenMoviesPopUp = (data) => {
+    setOpenMoviesPopUp(true);
+    setCurrentMovie(data);
+  }
+
+  const handleCloseMoviesPopUp = () => {
+    setOpenMoviesPopUp(false);
+    setCurrentMovie(null);
+  }
 
   function changeBlogs() {
     setShowBlog(!showBlog);
@@ -72,21 +85,23 @@ function Home() {
           moviesData.map((movie) => {
             return (
               <Grid size={{ xs: 12, sm: 6, md: 4, xl: 2 }}>
-                <MovieCard movie={movie} key={movie.imdbid} />
+                <MovieCard
+                  movie={movie}
+                  key={movie.imdbid}
+                  handleOpenMoviesPopUp={handleOpenMoviesPopUp}
+                />
               </Grid>
             )
           })
         }
       </Grid>
-
-
-
-
       <Button variant="contained" onClick={changeBlogs}>TOGGLE BLOGS</Button>
-
-
-
-
+      <MoviesPopUp
+        openMoviesPopUp={openMoviesPopUp}
+        currentMovie={currentMovie}
+        handleOpenMoviesPopUp={handleOpenMoviesPopUp}
+        handleCloseMoviesPopUp={handleCloseMoviesPopUp}
+      />
     </div>
   );
 }

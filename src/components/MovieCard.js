@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, handleOpenMoviesPopUp }) {
 
     return (
         <Card sx={{ maxWidth: 345, maxHeight: 400, minHeight: 400 }}>
@@ -25,7 +25,7 @@ export default function MovieCard({ movie }) {
             </CardContent>
             <CardActions>
                 <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+                <Button size="small" onClick={() => handleOpenMoviesPopUp(movie)}>Learn More</Button>
             </CardActions>
         </Card>
     );
