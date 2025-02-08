@@ -8,6 +8,7 @@ function About() {
         <div>
             <h1>About is here!</h1>
 
+
   
         </div>
     );
