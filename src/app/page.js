@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import { Divider } from "@mui/material";
 import MoviesPopUp from "@/components/MoviesPopUp";
 
-
+  
 function Home() {
 
   const [showBlog, setShowBlog] = useState(false);
